@@ -1,0 +1,12 @@
+COMPILE=@COMPILE@
+all: generate
+generate: generate.c makefile
+	$(COMPILE) -o $@ $<
+clean:
+	rm -f generate makefile *~ implied.pdf
+indent:
+	indent generate.c
+plot:
+	./plot.sh
+
+.PHONY: all clean indent plot

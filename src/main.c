@@ -3,7 +3,7 @@ struct ssat *volatile solver;
 
 // The main CDCL loop in kissat, we wish to change the solver inner data structure so it can solve large problem, and communicate easily when runnning in parallel
 static int
-CDCL (kissat * solver)
+CDCL (ssat * solver)
 {
   start_search (solver);
   int res = solver->inconsistent ? 20 : 0;
@@ -42,7 +42,7 @@ CDCL (kissat * solver)
 }
 
 static int
-sat_solve (kissat * solver,
+sat_solve (ssat * solver,
 		 int argc, char **argv, bool *cancel_alarm_ptr)
 {
   *cancel_alarm_ptr = false;

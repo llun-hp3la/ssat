@@ -5,7 +5,7 @@ struct solver {
   bool terminate; // whether it's terminated yet
   bool status;    // true if sat, unknown if not terminate + false; unsat if terminate + false
   bool iterate;			// Report learned unit clause.
-
+  bool inconsistent;		// Empty clause found or derived.
   
 };
 

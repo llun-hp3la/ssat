@@ -1,4 +1,11 @@
-struct ssat {
+// I think of moving the score part into a different component, so its only objective is to keep track of multiple solver score and signalling next action of each solver. This might be helpful for running parallel version. Each solver interact with the score components. I need to understand the code better to make a decision here.
+
+// This struct tries to capture the essential of kissat and satch
+struct solver {
+  bool terminate; // whether it's terminated yet
+  bool status;    // true if sat, unknown if not terminate + false; unsat if terminate + false
+  bool iterate;			// Report learned unit clause.
+  bool inconsistent;		// Empty clause found or derived.
   
 };
 

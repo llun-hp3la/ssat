@@ -10,7 +10,7 @@ typedef struct clause clause;
 #define MAX_GLUE ((1u<<LD_MAX_GLUE)-1)
 
 
-// our clauses are 3-SAT
+// our clauses has 3 literals
 struct clause
 {
   unsigned glue:LD_MAX_GLUE;

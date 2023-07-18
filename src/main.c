@@ -9,9 +9,9 @@ CDCL (ssat * solver)
   int res = solver->inconsistent ? 20 : 0;
   while (!res)
     {
-      clause *conflict = kissat_search_propagate (solver);
+      clause *conflict = search_propagate (solver);
       if (conflict)
-	res = kissat_analyze (solver, conflict);
+	res = sat_analyze (solver, conflict);
       else if (solver->iterating)
 	iterate (solver);
       else if (!solver->unassigned)
@@ -20,22 +20,22 @@ CDCL (ssat * solver)
 	break;
       else if (conflict_limit_hit (solver))
 	break;
-      else if (kissat_reducing (solver))
-	res = kissat_reduce (solver);
-      else if (kissat_switching_search_mode (solver))
-	kissat_switch_search_mode (solver);
-      else if (kissat_restarting (solver))
-	kissat_restart (solver);
-      else if (kissat_rephasing (solver))
-	kissat_rephase (solver);
-      else if (kissat_eliminating (solver))
-	res = kissat_eliminate (solver);
-      else if (kissat_probing (solver))
-	res = kissat_probe (solver);
+      else if (sat_reducing (solver))
+	res = sat_reduce (solver);
+      else if (sat_switching_search_mode (solver))
+	sat_switch_search_mode (solver);
+      else if (sat_restarting (solver))
+	sat_restart (solver);
+      else if (sat_rephasing (solver))
+	sat_rephase (solver);
+      else if (sat_eliminating (solver))
+	res = sat_eliminate (solver);
+      else if (sat_probing (solver))
+	res = sat_probe (solver);
       else if (decision_limit_hit (solver))
 	break;
       else
-	kissat_decide (solver);
+	sat_decide (solver);
     }
   stop_search (solver, res);
   return res;

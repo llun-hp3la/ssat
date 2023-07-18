@@ -36,7 +36,7 @@
 #define NEGATED(LIT) \
   (assert (VALID_INTERNAL_LITERAL (LIT)), ((LIT) & 1u))
 
-// this returns everything except the least significant bit of lit
+// this returns the var
 #define STRIP(LIT) \
   (assert (VALID_INTERNAL_LITERAL (LIT)), ((LIT) & ~1u))
 

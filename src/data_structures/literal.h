@@ -32,11 +32,11 @@
 #define NOT(LIT) \
    (assert (VALID_INTERNAL_LITERAL (LIT)), ((LIT) ^ 1u))
 
-// this returns the least significant bit of lit, hence var or not var
+// this returns the least significant bit of lit, hence var or negated var
 #define NEGATED(LIT) \
   (assert (VALID_INTERNAL_LITERAL (LIT)), ((LIT) & 1u))
 
-// this returns everything except the least significant bit of lit
+// this returns everything except the least significant bit of lit, i.e., get the var
 #define STRIP(LIT) \
   (assert (VALID_INTERNAL_LITERAL (LIT)), ((LIT) & ~1u))
 
